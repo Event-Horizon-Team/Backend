@@ -1,6 +1,7 @@
 package com.EventHorizon.EventHorizon.ServiceTests;
 
 import com.EventHorizon.EventHorizon.DTOs.EventDto.*;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.*;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.*;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Information;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Organizer;
@@ -62,10 +63,10 @@ public class EventServiceTest {
     @Test
     void testGetEventForUser() {
         when(launchedEventRepositoryService.getEventAndHandleNotFound(anyInt())).thenReturn(new LaunchedEvent());
-        when(viewEventDtoMapper.getDTOfromViewEvent(any())).thenReturn(new ViewEventDto());
-        ViewEventDto result = eventService.getEventForUser(1);
+        when(viewEventDtoMapper.getDTOfromViewEvent(any())).thenReturn(new SimpleEventDto());
+        SimpleEventDto result = eventService.getEventForUser(1);
         Assertions.assertNotNull(result);
-        Assertions.assertEquals(ViewEventDto.class, result.getClass());
+        Assertions.assertEquals(SimpleEventDto.class, result.getClass());
     }
 
     @Test

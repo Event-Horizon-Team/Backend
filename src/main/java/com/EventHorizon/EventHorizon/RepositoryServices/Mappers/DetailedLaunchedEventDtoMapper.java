@@ -1,7 +1,7 @@
 package com.EventHorizon.EventHorizon.RepositoryServices.Mappers;
 
-import com.EventHorizon.EventHorizon.DTOs.EventDto.DetailedEventDto;
-import com.EventHorizon.EventHorizon.DTOs.EventDto.DetailedLaunchedEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedLaunchedEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.Event;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import org.springframework.beans.factory.annotation.Autowired;

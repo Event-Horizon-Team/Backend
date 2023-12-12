@@ -1,7 +1,7 @@
 package com.EventHorizon.EventHorizon.RepositoryServices.EventComponent;
 
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventHeaderDto;
-import com.EventHorizon.EventHorizon.DTOs.EventDto.ViewEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.AdsOption;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.Location;
@@ -140,7 +140,7 @@ class LaunchedEventRepositoryServiceTest {
         tempLaunchedEvent.setEventAds(tempAdsOption);
         tempLaunchedEvent.setEventLocation(tempLocation);
         launchedEventRepositoryService.saveEventWhenCreatingAndHandleAlreadyExisting(tempLaunchedEvent);
-        ViewEventDto eventDetailsDto = Assertions.assertDoesNotThrow(() ->
+        SimpleEventDto eventDetailsDto = Assertions.assertDoesNotThrow(() ->
                 launchedEventRepositoryService.getViewEventDTO(tempLaunchedEvent.getId())
         );
         Assertions.assertEquals(tempLaunchedEvent.getName(), eventDetailsDto.getName());

@@ -1,14 +1,12 @@
 package com.EventHorizon.EventHorizon.Controllers;
 
-import com.EventHorizon.EventHorizon.DTOs.EventDto.DetailedEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedEventDto;
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventHeaderDto;
-import com.EventHorizon.EventHorizon.DTOs.EventDto.ViewEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.Entities.enums.EventType;
 import com.EventHorizon.EventHorizon.Services.EventService;
 import com.EventHorizon.EventHorizon.Services.UserTokenInformationService;
-import com.EventHorizon.EventHorizon.security.Service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +24,9 @@ public class EventOperationsController {
     private UserTokenInformationService userTokenInformationService;
 
     @GetMapping("eventForUser/{eventId}")//any
-    public ResponseEntity<ViewEventDto> getEventForUser(@PathVariable int eventId) {
-        ViewEventDto viewEventDTO = this.eventService.getEventForUser(eventId);
-        return new ResponseEntity<>(viewEventDTO, HttpStatus.OK);
+    public ResponseEntity<SimpleEventDto> getEventForUser(@PathVariable int eventId) {
+        SimpleEventDto simpleEventDTO = this.eventService.getEventForUser(eventId);
+        return new ResponseEntity<>(simpleEventDTO, HttpStatus.OK);
     }
 
     @GetMapping("EventForOrganizer/{eventId}")//organizer,admin

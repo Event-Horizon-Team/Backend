@@ -1,16 +1,17 @@
-package com.EventHorizon.EventHorizon.DTOs.EventDto;
+package com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes;
 
+import com.EventHorizon.EventHorizon.DTOs.EventDto.AdsOptionDto;
 import com.EventHorizon.EventHorizon.DTOs.UserDto.OrganizerHeaderDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.DraftedEvent;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Date;
 @EqualsAndHashCode
 @SuperBuilder
 @NoArgsConstructor
 @Data
 public class DetailedDraftedEventDto extends DetailedEventDto {
+
     public DetailedDraftedEventDto(DraftedEvent event) {
         this.setId(event.getId());
         this.setName(event.getName());
@@ -20,6 +21,7 @@ public class DetailedDraftedEventDto extends DetailedEventDto {
         this.setEventLocation(event.getEventLocation());
         this.setEventAds(new AdsOptionDto(event.getEventAds()));
         this.setEventType(event.getEventType());
+        this.eventDtoType = EventDtoType.DRAFTED;
         this.setEventOrganizer(new OrganizerHeaderDto(event.getEventOrganizer()));
     }
 }

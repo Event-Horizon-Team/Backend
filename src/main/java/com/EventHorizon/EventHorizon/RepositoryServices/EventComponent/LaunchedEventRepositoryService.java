@@ -1,7 +1,7 @@
 package com.EventHorizon.EventHorizon.RepositoryServices.EventComponent;
 
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventHeaderDto;
-import com.EventHorizon.EventHorizon.DTOs.EventDto.ViewEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.Event;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import com.EventHorizon.EventHorizon.Exceptions.EventExceptions.EventAlreadyExisting;
@@ -56,9 +56,9 @@ public class LaunchedEventRepositoryService implements SuperEventRepositoryServi
         launchedEventRepository.deleteById(id);
     }
 
-    public ViewEventDto getViewEventDTO(int id) {
+    public SimpleEventDto getViewEventDTO(int id) {
         LaunchedEvent launchedEvent = getEventAndHandleNotFound(id);
-        return new ViewEventDto(launchedEvent);
+        return new SimpleEventDto(launchedEvent);
     }
 
     public EventHeaderDto getEventHeaderDto(int id) {

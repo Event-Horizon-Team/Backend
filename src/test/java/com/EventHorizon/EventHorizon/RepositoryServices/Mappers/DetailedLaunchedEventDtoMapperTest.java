@@ -1,9 +1,8 @@
 package com.EventHorizon.EventHorizon.RepositoryServices.Mappers;
 
 import com.EventHorizon.EventHorizon.DTOs.EventDto.AdsOptionDto;
-import com.EventHorizon.EventHorizon.DTOs.EventDto.DetailedLaunchedEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedLaunchedEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.AdsOption;
-import com.EventHorizon.EventHorizon.Entities.EventEntities.Event;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Information;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Organizer;
@@ -13,8 +12,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Date;
 
 @SpringBootTest
 class DetailedLaunchedEventDtoMapperTest {

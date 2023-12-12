@@ -1,5 +1,6 @@
 package com.EventHorizon.EventHorizon.DTOs.EventDto;
 
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedDraftedEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.*;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Information;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Organizer;

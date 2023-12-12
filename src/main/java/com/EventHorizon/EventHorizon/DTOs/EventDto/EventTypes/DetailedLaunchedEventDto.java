@@ -1,7 +1,9 @@
-package com.EventHorizon.EventHorizon.DTOs.EventDto;
+package com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes;
 
+import com.EventHorizon.EventHorizon.DTOs.EventDto.AdsOptionDto;
 import com.EventHorizon.EventHorizon.DTOs.UserDto.OrganizerHeaderDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;;
+import com.EventHorizon.EventHorizon.Entities.enums.EventType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -26,6 +28,7 @@ public class DetailedLaunchedEventDto extends DetailedEventDto{
         this.setEventLocation(event.getEventLocation());
         this.setEventAds(new AdsOptionDto(event.getEventAds()));
         this.setEventType(event.getEventType());
+        this.eventDtoType = EventDtoType.LAUNCHED;
         this.setEventOrganizer(new OrganizerHeaderDto(event.getEventOrganizer()));
     }
 }

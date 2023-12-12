@@ -1,8 +1,8 @@
 package com.EventHorizon.EventHorizon.Services;
 
-import com.EventHorizon.EventHorizon.DTOs.EventDto.DetailedEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedEventDto;
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventHeaderDto;
-import com.EventHorizon.EventHorizon.DTOs.EventDto.ViewEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.Event;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Information;
@@ -48,7 +48,7 @@ public class EventService {
     @Autowired
     private DetailedLaunchedEventDtoMapper detailedLaunchedEventDtoMapper;
 
-    public ViewEventDto getEventForUser(int eventId) {
+    public SimpleEventDto getEventForUser(int eventId) {
         LaunchedEvent event = this.launchedEventRepositoryService.getEventAndHandleNotFound(eventId);
 
         return viewEventDtoMapper.getDTOfromViewEvent(event);

@@ -1,6 +1,6 @@
 package com.EventHorizon.EventHorizon.RepositoryServices.Mappers;
 
-import com.EventHorizon.EventHorizon.DTOs.EventDto.ViewEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.AdsOption;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Information;
@@ -28,7 +28,7 @@ class ViewEventDtoMapperTest {
     @Test
     public void testGetEventFromViewEventDTO() {
 
-        ViewEventDto dto = new ViewEventDto();
+        SimpleEventDto dto = new SimpleEventDto();
         dto.setId(1);
         dto.setName("Test Event");
         dto.setDescription("Test Description");
@@ -74,7 +74,7 @@ class ViewEventDtoMapperTest {
         organizer.setInformation(information);
         event.setEventOrganizer(organizer);
         
-        ViewEventDto result = eventDtoMapper.getDTOfromViewEvent(event);
+        SimpleEventDto result = eventDtoMapper.getDTOfromViewEvent(event);
 
 
         Assertions.assertEquals(event.getId(), result.getId());

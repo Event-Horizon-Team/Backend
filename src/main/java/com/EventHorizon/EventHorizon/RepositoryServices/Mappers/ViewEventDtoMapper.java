@@ -1,6 +1,6 @@
 package com.EventHorizon.EventHorizon.RepositoryServices.Mappers;
 
-import com.EventHorizon.EventHorizon.DTOs.EventDto.ViewEventDto;
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.DTOs.UserDto.OrganizerHeaderDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import com.EventHorizon.EventHorizon.RepositoryServices.EventComponent.LaunchedEventRepositoryService;
@@ -14,7 +14,7 @@ public class ViewEventDtoMapper {
     @Autowired
     private LaunchedEventRepositoryService launchedEventRepositoryService;
 
-    public LaunchedEvent getEventFromViewEventDTO(ViewEventDto dto) {
+    public LaunchedEvent getEventFromViewEventDTO(SimpleEventDto dto) {
         return LaunchedEvent.builder()
                 .name(dto.getName())
                 .id(dto.getId())
@@ -26,8 +26,8 @@ public class ViewEventDtoMapper {
                 .build();
     }
 
-    public ViewEventDto getDTOfromViewEvent(LaunchedEvent event) {
-        return ViewEventDto.builder()
+    public SimpleEventDto getDTOfromViewEvent(LaunchedEvent event) {
+        return SimpleEventDto.builder()
                 .id(event.getId())
                 .eventOrganizer(new OrganizerHeaderDto(event.getEventOrganizer()))
                 .eventDate(event.getEventDate())

@@ -1,5 +1,6 @@
 package com.EventHorizon.EventHorizon.DTOs.EventDto;
 
+import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.AdsOption;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.LaunchedEvent;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.Location;
@@ -28,7 +29,7 @@ class EventHeaderDtoTest {
     @Test
     public void testEventHeaderDtoConstructorMapsValuesCorrectly() {
         insialize();
-        ViewEventDto eventDetailsDto = new ViewEventDto();
+        SimpleEventDto eventDetailsDto = new SimpleEventDto();
         EventHeaderDto eventHeaderDto = new EventHeaderDto(tempEvent);
         // Verify that the values are mapped correctly
         Assertions.assertEquals(tempEvent.getName(), eventHeaderDto.getName());
