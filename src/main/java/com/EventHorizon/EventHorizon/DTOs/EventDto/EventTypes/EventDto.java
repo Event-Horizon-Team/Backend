@@ -1,6 +1,5 @@
 package com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes;
 
-import com.EventHorizon.EventHorizon.DTOs.EventDto.EventDtoType;
 import com.EventHorizon.EventHorizon.DTOs.UserDto.OrganizerHeaderDto;
 import com.EventHorizon.EventHorizon.Entities.EventEntities.Location;
 import lombok.AllArgsConstructor;

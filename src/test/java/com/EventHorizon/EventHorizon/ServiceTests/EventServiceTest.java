@@ -76,6 +76,8 @@ public class EventServiceTest {
         when(eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(any())).thenReturn(draftedEventRepositoryService);
         when(eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(any()).getEventAndHandleNotFound(anyInt())).thenReturn(new DraftedEvent());
         when(detailedDraftedEventDtoMapper.getDTOfromDetailedEvent(any())).thenReturn(new DetailedDraftedEventDto());
+        when(userEventService.checkOrganizerOfEvent(any(), any())).thenReturn(true);
+
         DetailedEventDto result = eventService.getEventForOrganizer(1, 1, EventType.DRAFTEDEVENT);
         Assertions.assertNotNull(result);
         Assertions.assertEquals(DetailedDraftedEventDto.class, result.getClass());
@@ -115,6 +117,8 @@ public class EventServiceTest {
         when(eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(any()).getEventAndHandleNotFound(anyInt())).thenReturn(new DraftedEvent());
         when(eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(any()).updateEventAndHandleNotFound(any())).thenReturn(new DraftedEvent());
         when(detailedEventDtoMapperFactory.getEventDtoMapperByEventType(any()).getDTOfromDetailedEvent(any())).thenReturn(new DetailedDraftedEventDto());
+        when(userEventService.checkOrganizerOfEvent(any(), any())).thenReturn(true);
+
         DetailedEventDto result = eventService.updateEvent(1, eventDTO);
         Assertions.assertNotNull(result);
         Assertions.assertEquals(DetailedDraftedEventDto.class, result.getClass());
@@ -124,11 +128,14 @@ public class EventServiceTest {
     void testDeleteEvent() {
         Organizer organizer = new Organizer();
         DetailedLaunchedEventDto eventDTO = new DetailedLaunchedEventDto();
+
         when(detailedEventDtoMapperFactory.getEventDtoMapperByEventType(any())).thenReturn(new DetailedLaunchedEventDtoMapper());
         when(eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(any())).thenReturn(launchedEventRepositoryService);
         when(informationService.getByID(anyInt())).thenReturn(new Information());
         when(organizerInformationService.getUserByInformation(any())).thenReturn(organizer);
         when(eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(any()).getEventAndHandleNotFound(anyInt())).thenReturn(new LaunchedEvent());
+        when(userEventService.checkOrganizerOfEvent(any(), any())).thenReturn(true);
+
         assertDoesNotThrow(() -> eventService.deleteEvent(1, eventDTO));
     }
 

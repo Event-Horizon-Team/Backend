@@ -4,7 +4,6 @@ import com.EventHorizon.EventHorizon.Entities.EventEntities.Event;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Information;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Organizer;
 import com.EventHorizon.EventHorizon.Entities.enums.Role;
-import com.EventHorizon.EventHorizon.Exceptions.EventExceptions.InvalidAccessOfEventException;
 import com.EventHorizon.EventHorizon.EntityCustomCreators.InformationCustomCreator;
 import com.EventHorizon.EventHorizon.Services.UserEventService;
 import org.junit.jupiter.api.Assertions;
@@ -26,9 +25,8 @@ public class UserEventServiceTest {
         Event event = Event.builder()
                 .eventOrganizer(organizer)
                 .build();
-        Assertions.assertDoesNotThrow(() -> {
-            userEventService.checkAndHandleNotOrganizerOfEvent(organizer, event);
-        });
+        Assertions.assertTrue(
+            userEventService.checkOrganizerOfEvent(organizer, event));
     }
 
     @Test
@@ -40,8 +38,8 @@ public class UserEventServiceTest {
                 .build();
         Information information2 = informationCustomCreator.getInformation(Role.ORGANIZER);
         Organizer organizer2 = Organizer.builder().information(information2).build();
-        Assertions.assertThrows(InvalidAccessOfEventException.class,() -> {
-            userEventService.checkAndHandleNotOrganizerOfEvent(organizer2, event);
-        });
+
+        Assertions.assertFalse(
+                userEventService.checkOrganizerOfEvent(organizer2, event));
     }
 }

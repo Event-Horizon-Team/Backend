@@ -7,6 +7,7 @@ import com.EventHorizon.EventHorizon.Entities.EventEntities.Event;
 import com.EventHorizon.EventHorizon.Entities.UserEntities.Information;
 import com.EventHorizon.EventHorizon.Entities.enums.EventType;
 import com.EventHorizon.EventHorizon.Entities.enums.Role;
+import com.EventHorizon.EventHorizon.Exceptions.EventExceptions.InvalidAccessOfEventException;
 import com.EventHorizon.EventHorizon.RepositoryServices.EventComponent.EventRepositoryServiceFactory;
 import com.EventHorizon.EventHorizon.RepositoryServices.EventComponent.SuperEventRepositoryService;
 import com.EventHorizon.EventHorizon.RepositoryServices.InformationComponent.InformationRepositoryService;
@@ -19,6 +20,10 @@ public class ViewingEventSerivce
     InformationRepositoryService informationRepositoryService;
     @Autowired
     EventRepositoryServiceFactory eventRepositoryServiceFactory;
+    @Autowired
+    AdminChain adminChain;
+    @Autowired
+    UserChain userChain;
 
     public ViewEventDto viewEvent(int eventId, EventType eventType, int userInformationId)
     {
@@ -27,14 +32,15 @@ public class ViewingEventSerivce
                 = eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(eventType);
         Event event = superEventRepositoryService.getEventAndHandleNotFound(eventId);
 
-        return null;
-//        return checkAdminChain(information, event);
+        return this.adminChain.getDto(information, event);
     }
 
+    public ViewEventDto viewEvent(int eventId, EventType eventType)
+    {
+        SuperEventRepositoryService superEventRepositoryService
+                = eventRepositoryServiceFactory.getEventRepositoryServiceByEventType(eventType);
+        Event event = superEventRepositoryService.getEventAndHandleNotFound(eventId);
 
-
-//    public ViewEventDto checkOrganizerChain(Information information, Event event)
-//    {
-//        return null;
-//    }
+        return this.userChain.getDto(event);
+    }
 }

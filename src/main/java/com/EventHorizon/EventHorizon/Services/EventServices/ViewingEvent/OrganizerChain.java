@@ -25,6 +25,8 @@ public class OrganizerChain
     UserEventService userEventService;
     @Autowired
     OrganizerInformationRepositoryService organizerInformationRepositoryService;
+    @Autowired
+    UserChain userChain;
 
     public ViewEventDto getDto(Information information, Event event) {
         if (information.getRole() != Role.ORGANIZER)
@@ -32,7 +34,8 @@ public class OrganizerChain
         Organizer organizer
                 = (Organizer)organizerInformationRepositoryService.getUserByInformation(information);
 
-        this.userEventService.checkAndHandleNotOrganizerOfEvent(organizer, event);
+        if (!userEventService.checkOrganizerOfEvent(organizer, event))
+            return userChain.getDto(event);
 
         if (event.getEventType() == EventType.DRAFTEDEVENT)
             return this.getLaunchedDto(event);
@@ -42,9 +45,9 @@ public class OrganizerChain
 
     private ViewEventDto getLaunchedDto(Event event) {
         return new ViewEventDto
-                (new DetailedDraftedEventDto((DraftedEvent) event)
+                (new DetailedLaunchedEventDto((LaunchedEvent) event)
                         , EventPriviledge.ADMIN
-                        , EventDtoType.DETAILEDDRAFTED);
+                        , EventDtoType.DETAILEDLAUNCHED);
     }
 
     private ViewEventDto getDraftedDto(Event event) {
