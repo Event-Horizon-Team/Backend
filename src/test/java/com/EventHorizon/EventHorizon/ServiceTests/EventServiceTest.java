@@ -9,7 +9,7 @@ import com.EventHorizon.EventHorizon.Entities.enums.EventType;
 import com.EventHorizon.EventHorizon.Exceptions.EventExceptions.EventIsAlreadyLaunched;
 import com.EventHorizon.EventHorizon.RepositoryServices.EventComponent.*;
 import com.EventHorizon.EventHorizon.RepositoryServices.Mappers.*;
-import com.EventHorizon.EventHorizon.Services.EventService;
+import com.EventHorizon.EventHorizon.Services.EventServices.EventService;
 import com.EventHorizon.EventHorizon.RepositoryServices.InformationComponent.InformationRepositoryService;
 import com.EventHorizon.EventHorizon.RepositoryServices.InformationComponent.InformationRepositoryServiceComponent.OrganizerInformationRepositoryService;
 import com.EventHorizon.EventHorizon.Services.UserEventService;

@@ -25,4 +25,9 @@ public class Sponsor  extends User{
 
     @OneToMany(mappedBy = "sponsor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<SponsorSeatArchive> sponsorSeatArchiveList;
+
+    @Override
+    public int getInformationId() {
+        return information.getId();
+    }
 }

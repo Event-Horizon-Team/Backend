@@ -3,11 +3,11 @@ package com.EventHorizon.EventHorizon.Exceptions.EventExceptions;
 import com.EventHorizon.EventHorizon.Exceptions.BaseException;
 import org.springframework.http.HttpStatus;
 
-public class NotOrganizerOfThisEventException extends BaseException
+public class InvalidAccessOfEventException extends BaseException
 {
-    public NotOrganizerOfThisEventException()
+    public InvalidAccessOfEventException()
     {
         this.httpStatus = HttpStatus.FORBIDDEN;
-        this.message = "Not organizer of this event";
+        this.message = "Invalid Access Of Event Exception";
     }
 }

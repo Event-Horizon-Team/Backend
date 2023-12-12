@@ -18,7 +18,6 @@ public class SimpleEventDto extends EventDto
         this.eventDate = event.getEventDate();
         this.description = event.getDescription();
         this.eventLocation = event.getEventLocation();
-        this.eventDtoType = EventDtoType.SIMPLE;
         this.eventOrganizer = new OrganizerHeaderDto(event.getEventOrganizer());
     }
 }

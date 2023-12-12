@@ -28,7 +28,6 @@ public class DetailedLaunchedEventDto extends DetailedEventDto{
         this.setEventLocation(event.getEventLocation());
         this.setEventAds(new AdsOptionDto(event.getEventAds()));
         this.setEventType(event.getEventType());
-        this.eventDtoType = EventDtoType.LAUNCHED;
         this.setEventOrganizer(new OrganizerHeaderDto(event.getEventOrganizer()));
     }
 }

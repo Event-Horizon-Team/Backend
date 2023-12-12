@@ -25,5 +25,4 @@ public class AdminInformationRepositoryService implements SuperUserInformationRe
         informationRepository.save(newInformation);
         return newInformation;
     }
-
 }

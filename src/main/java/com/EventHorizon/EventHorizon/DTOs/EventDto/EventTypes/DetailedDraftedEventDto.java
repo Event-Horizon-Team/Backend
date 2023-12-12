@@ -21,7 +21,6 @@ public class DetailedDraftedEventDto extends DetailedEventDto {
         this.setEventLocation(event.getEventLocation());
         this.setEventAds(new AdsOptionDto(event.getEventAds()));
         this.setEventType(event.getEventType());
-        this.eventDtoType = EventDtoType.DRAFTED;
         this.setEventOrganizer(new OrganizerHeaderDto(event.getEventOrganizer()));
     }
 }

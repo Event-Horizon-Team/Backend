@@ -1,4 +1,4 @@
-package com.EventHorizon.EventHorizon.Services;
+package com.EventHorizon.EventHorizon.Services.EventServices;
 
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedEventDto;
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventHeaderDto;
@@ -19,13 +19,11 @@ import com.EventHorizon.EventHorizon.RepositoryServices.Mappers.DetailedEventDto
 import com.EventHorizon.EventHorizon.RepositoryServices.Mappers.DetailedEventDtoMapperFactory;
 import com.EventHorizon.EventHorizon.RepositoryServices.Mappers.DetailedLaunchedEventDtoMapper;
 import com.EventHorizon.EventHorizon.RepositoryServices.Mappers.ViewEventDtoMapper;
+import com.EventHorizon.EventHorizon.Services.UserEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-;
-
 
 @Service
 public class EventService {
@@ -40,7 +38,7 @@ public class EventService {
     @Autowired
     private UserEventService userEventService;
     @Autowired
-    private InformationRepositoryService informationService;
+    private InformationRepositoryService informationRepositoryService;
     @Autowired
     private ViewEventDtoMapper viewEventDtoMapper;
     @Autowired
@@ -111,7 +109,7 @@ public class EventService {
     }
 
     public Organizer getOrganizerFromInformationId(int inforamtionID) {
-        Information information = informationService.getByID(inforamtionID);
+        Information information = informationRepositoryService.getByID(inforamtionID);
         return (Organizer) organizerInformationService.getUserByInformation(information);
     }
 

@@ -4,7 +4,7 @@ import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.DetailedEventDto;
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventHeaderDto;
 import com.EventHorizon.EventHorizon.DTOs.EventDto.EventTypes.SimpleEventDto;
 import com.EventHorizon.EventHorizon.Entities.enums.EventType;
-import com.EventHorizon.EventHorizon.Services.EventService;
+import com.EventHorizon.EventHorizon.Services.EventServices.EventService;
 import com.EventHorizon.EventHorizon.Services.UserTokenInformationService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

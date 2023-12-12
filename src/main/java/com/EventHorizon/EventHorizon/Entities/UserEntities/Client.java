@@ -23,4 +23,8 @@ public class Client extends User {
     @JoinColumn(name = "information_id", referencedColumnName = "id")
     private Information information;
 
+    @Override
+    public int getInformationId() {
+        return information.getId();
+    }
 }

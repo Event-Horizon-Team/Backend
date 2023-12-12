@@ -13,7 +13,7 @@ import com.EventHorizon.EventHorizon.Filter.Enums.FilterTypes;
 import com.EventHorizon.EventHorizon.Repository.AdsOptionRepository;
 import com.EventHorizon.EventHorizon.RepositoryServices.EventComponent.LaunchedEventRepositoryService;
 import com.EventHorizon.EventHorizon.RepositoryServices.InformationComponent.InformationRepositoryService;
-import com.EventHorizon.EventHorizon.Services.EventService;
+import com.EventHorizon.EventHorizon.Services.EventServices.EventService;
 import com.EventHorizon.EventHorizon.Services.FilterService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
