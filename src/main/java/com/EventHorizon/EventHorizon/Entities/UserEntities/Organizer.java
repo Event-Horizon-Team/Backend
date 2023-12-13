@@ -1,10 +1,14 @@
 package com.EventHorizon.EventHorizon.Entities.UserEntities;
 
+import com.EventHorizon.EventHorizon.Entities.EventEntities.Event;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -22,5 +26,9 @@ public class Organizer extends User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "information_id", referencedColumnName = "id")
     private Information information;
+
+    @OneToMany(mappedBy = "eventOrganizer", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    List<Event> myEvents;
+
 
 }

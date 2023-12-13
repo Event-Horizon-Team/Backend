@@ -72,5 +72,21 @@ public class EventCustomCreator
                 .build();
         return event;
     }
+    public LaunchedEvent getLaunchedEvent(Organizer organizer) {
+        this.numberOfcreatedEvents++;
+        AdsOption customAdsOption = this.adsOptionCustomCreator.getAdsOption();
+        this.adsOptionRepositry.save(customAdsOption);
+
+        LaunchedEvent event = LaunchedEvent.builder()
+                .eventAds(customAdsOption)
+                .eventLocation(locationCustomCreator.getLocation())
+                .name("Event" + numberOfcreatedEvents)
+                .eventOrganizer(organizer)
+                .description("description" + numberOfcreatedEvents)
+                .seatTypes(new ArrayList<>())
+                .eventDate(new Date(System.currentTimeMillis()+1000))
+                .build();
+        return event;
+    }
 
 }
