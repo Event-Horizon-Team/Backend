@@ -48,7 +48,7 @@ public class EventCustomCreator
                 .eventOrganizer(customOrganizer)
                 .description("description" + numberOfcreatedEvents)
                 .seatTypes(new ArrayList<>())
-                .eventDate(new Date(System.currentTimeMillis()+1000))
+                .eventDate(new Date(System.currentTimeMillis()+100000))
                 .build();
         return event;
     }
@@ -68,7 +68,7 @@ public class EventCustomCreator
                 .eventOrganizer(customOrganizer)
                 .description("description" + numberOfcreatedEvents)
                 .seatTypes(new ArrayList<>())
-                .eventDate(new Date(System.currentTimeMillis()+1000))
+                .eventDate(new Date(System.currentTimeMillis()+100000))
                 .build();
         return event;
     }
@@ -84,7 +84,7 @@ public class EventCustomCreator
                 .eventOrganizer(organizer)
                 .description("description" + numberOfcreatedEvents)
                 .seatTypes(new ArrayList<>())
-                .eventDate(new Date(System.currentTimeMillis()+1000))
+                .eventDate(new Date(System.currentTimeMillis()+100000))
                 .build();
         return event;
     }
